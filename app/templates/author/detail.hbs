@@ -16,6 +16,25 @@
       </div>
     </div>
 
-    <div class="slide-out-content"></div>
+    <div class="slide-out-content">
+      <div class="title">
+        <h3>{{model.books.length}} Books from this author</h3>
+      </div>
+
+      <ul class="book-list">
+        {{#each model.books as |book|}}
+          <li class="book">
+            <p class="book-title">
+              {{#link-to "book.detail" book.id}}
+                {{book.title}}
+              {{/link-to}}
+            </p>
+            <p class="book-isbn">
+              {{book.ibsn}}
+            </p>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
   </div>
 </div>
