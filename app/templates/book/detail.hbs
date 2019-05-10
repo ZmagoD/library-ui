@@ -26,7 +26,7 @@
         </p>
         <p>
           <strong>Publish Date:</strong>
-          {{model.author.publishDate}}
+          {{moment-format model.author.publishDate "MMMM Do YYYY"}}
         </p>
         <p>
           <strong>ISBN:</strong>
@@ -34,9 +34,6 @@
         </p>
       </div>
     </div>
-
-    <div class="slide-out-content">
-      {{outlet}}
-    </div>
+    {{liquid-outlet}}
   </div>
 </div>

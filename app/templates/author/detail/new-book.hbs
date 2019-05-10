@@ -1,0 +1,29 @@
+<div class="modal">
+  <form class="modal-card" onsubmit={{action "saveBook"}}>
+    <h3 class="modal-heading">Add New Book for {{model.author.last}}, {{model.author.first}}</h3>
+
+    <div class="modal-content">
+      <div class="field">
+        <label>Book title</label>
+        {{input type="text" placeholder="Book title" value=model.book.title}}
+      </div>
+
+      <div class="field">
+        <label>Book isbn</label>
+        {{input type="text" placeholder="ISBN" value=model.book.ibsn}}
+      </div>
+
+      <div class="field">
+        <label>Publish date</label>
+        {{input type="date" placeholder="Publish date<" value=model.book.publishDate}}
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      {{#link-to "author.detail" model.author.id class="btn-clear"}}
+        Cancel
+      {{/link-to}}
+      <button type="submit" class="btn-submit">Submit</button>
+    </div>
+  </form>
+</div>
