@@ -27,6 +27,13 @@
         {{/link-to}}
       </div>
 
+      <div class="details">
+        <p>
+          <strong>Added by:</strong>
+          {{model.username}}
+        </p>
+      </div>
+
       <ul class="book-list">
         {{#each model.books as |book|}}
           <li class="book">
