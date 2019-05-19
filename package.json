@@ -44,6 +44,8 @@
     "ember-power-select": "^2.3.2",
     "ember-qunit": "^3.4.1",
     "ember-resolver": "^5.0.1",
+    "ember-simple-auth": "^1.8.2",
+    "ember-simple-auth-token": "^4.0.7",
     "ember-source": "~3.9.0",
     "ember-welcome-page": "^3.2.0",
     "embercasts-library-styles": "^1.1.2",
