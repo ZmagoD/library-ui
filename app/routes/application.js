@@ -5,10 +5,10 @@ import AutenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route
 export default Route.extend(AutenticatedRouteMixin, {
   session: service('session'),
   currentUser: service('current-user'),
+  fastboot: service('fastboot'),
 
   beforeModel() {
     this._super(...arguments);
-
     this.loadUser();
   },
 

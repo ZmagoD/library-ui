@@ -2,10 +2,16 @@
 
 module.exports = function(environment) {
   let ENV = {
+    DS: {
+      host: 'http://localhost:3000'
+    },
     modulePrefix: 'library-ui',
     environment,
     rootURL: '/',
     locationType: 'auto',
+    fastboot: {
+      hostWhitelist: [/^localhost:\d+$/]
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -23,7 +29,8 @@ module.exports = function(environment) {
     },
 
     'ember-simple-auth-token': {
-      serverTokenEndpoint: 'http://localhost:3000/session',
+      identificationField: 'email',
+      passwordField: 'password',
       refreshAccessTokens: false,
       headers: {
         'Accept': 'application/vnd.api+json',
@@ -53,8 +60,12 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    // here you can enable a production-specific feature
+    ENV.DS.host = process.env.API_HOST || "production url";
+    const clientHost = process.env.CLIENT_HOST || 'http://localhost:4200';
+    ENV.fastboot.hostWhitelist = [ENV.DS.host, clientHost];
   }
+
+  ENV['ember-simple-auth-token'].serverTokenEndpoint = `${ENV.DS.host}/session`;
 
   return ENV;
 };
